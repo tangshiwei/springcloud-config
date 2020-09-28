@@ -56,7 +56,7 @@ eureka:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
   server:
     # 禁用自我保护机制
-    enable-self-preservation: false
+    enable-self-preservation: true
 ##暴露端点
 management:
   endpoints:
