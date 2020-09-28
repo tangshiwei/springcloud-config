@@ -4,26 +4,47 @@ spring:
     active: dev # 激活开发环境配置
 ---
 server:
-  port: 4001 #端口号
+  port: 9090
+
 spring:
-  profiles: dev # 开发环境
+  profiles:
+    active: dev
   application:
-    name: config-service-dev
+    name: provider-service
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8200/eureka
+
+  instance:
+    ###实例ID
+    instance-id: ${spring.application.name}:${server.port}
+    ##是否显示IP
+    prefer-ip-address: true
    
 ---
 server:
-  port: 4002 #端口号
+  port: 9090
+
 spring:
-  profiles: prod # 生产环境
+  profiles:
+    active: prod
   application:
-    name: config-service-prod
+    name: provider-service
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8200/eureka
+
+  instance:
+    ###实例ID
+    instance-id: ${spring.application.name}:${server.port}
+    ##是否显示IP
+    prefer-ip-address: false
     
----
-server:
-  port: 4003 #端口号
-spring:
-  profiles: test # 开发环境
-  application:
-    name: config-service-test
 
 #保存时注意，选择 UTF-8 保存
