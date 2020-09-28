@@ -5,16 +5,17 @@ spring:
 ---
 server:
   port: 9090
+
 spring:
   profiles: dev
   application:
-    name: provider-service
+    name: client-service
 eureka:
   client:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://localhost:8200/eureka
+      defaultZone: http://localhost:8200/eureka/
 
   instance:
     ###实例ID
@@ -25,16 +26,17 @@ eureka:
 ---
 server:
   port: 9090
+
 spring:
   profiles: prod
   application:
-    name: provider-service
+    name: client-service
 eureka:
   client:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://localhost:8200/eureka
+      defaultZone: http://localhost:8200/eureka/
 
   instance:
     ###实例ID
