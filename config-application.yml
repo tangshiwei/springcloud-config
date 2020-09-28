@@ -1,0 +1,25 @@
+spring:
+  ##激活的环境配置
+  profile: dev
+
+---
+server:
+   port: 4001
+spring:
+  profile: dev
+  application:
+    name: config-service-dev
+---
+server:
+   port: 4002
+spring:
+  profile: test
+  application:
+    name: config-service-test
+---
+server:
+   port: 4003
+spring:
+  profile: prod
+  application:
+    name: config-service-prod
